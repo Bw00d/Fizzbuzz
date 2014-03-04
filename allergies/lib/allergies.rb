@@ -1,15 +1,15 @@
 def allergies(input)
-  allergens = {1 => 'eggs', 2 => 'peanuts', 4 => 'shellfish', 
-                8 => 'strawberries', 16 => 'tomatoes',  32 => 'chocolate',
-                64 => 'pollen', 128 => 'cats'}
-  result = ""
+  allergens = {128 => 'cats', 64 => 'pollen', 32 => 'chocolate', 16 => 'tomatoes',
+                  8 => 'strawberries', 4 => 'shellfish', 2 => 'peanuts', 1 => 'eggs'}
   your_allergies = []
 
   allergens.each do |value, allergy|
-    if value == input
-      result = allergy
+    if (input - value) >= 0
+      your_allergies << allergy
+      input -= value
     end
   end
-  result
+  your_allergies
 end
+
 
